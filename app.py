@@ -49,6 +49,7 @@ def generate_skill_table(skills, border_size, corner_radius, icon_width, icon_he
     return rect_larger
 
 
+# See Translator.py on how to generate the numbers
 @app.route("/<int:a>,<int:b>,<int:c>,<int:d>")
 def users(a, b, c, d):
     if a <= 255 | b <= 255 | c <= 255 | d <= 255:

@@ -13,3 +13,5 @@ in_str = list(set("".join(in_str.split()).split(',')))
 tiered_skills = [int(''.join(["1" if x in [skill_group.index(c) for c in in_str if c in skill_group] else "0" for x
                               in range(8)]), 2) for skill_group in skill_list]
 print(tiered_skills)
+# OUTPUT: [128, 160, 132, 65]
+# Can be used for https://wows-captain-skill.herokuapp.com/128,160,132,65
