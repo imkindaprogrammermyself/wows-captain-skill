@@ -63,5 +63,6 @@ def users(a, b, c, d):
         abort(400)
 
 
-app.debug = False
-app.run()
+if __name__ == '__main__':
+    app.debug = False
+    app.run()
