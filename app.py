@@ -32,7 +32,7 @@ def generate_skill_table(skills, border_size, corner_radius, icon_width, icon_he
     table_height = icon_margin + ((icon_height + icon_margin) * 4)
     icon_margin_right, icon_margin_top = icon_margin, icon_margin
     rect = rounded_rectangle(table_width, table_height, int(corner_radius / 2), "#0b344d")
-    rect_larger = rounded_rectangle(table_width + border_size, table_height + border_size, corner_radius, "#fff")
+    rect_larger = rounded_rectangle(table_width + border_size, table_height + border_size, corner_radius, "#ffff")
     ow, oh = rect.size
     nw, nh = rect_larger.size
     inner_x, inner_y = int(((nw - ow) / 2)), int(((nh - oh) / 2))
@@ -66,4 +66,5 @@ def users(a, b, c, d):
 
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    # app.run()
+    app.run(host="0.0.0.0", port="80")
