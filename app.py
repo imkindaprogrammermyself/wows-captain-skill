@@ -1,4 +1,4 @@
-from flask import Flask, send_file, abort
+from flask import Flask, send_file, abort, render_template
 from PIL import Image, ImageDraw
 import io
 
@@ -38,7 +38,7 @@ def generate_skill_table(skills, border_size, corner_radius, icon_width, icon_he
     inner_x, inner_y = int(((nw - ow) / 2)), int(((nh - oh) / 2))
     for skill_tier in skill_list:
         for skill in skill_tier:
-            icon = Image.open(format("skills/%s.png" % skill))
+            icon = Image.open(format("static/img/%s.png" % skill))
             if skill not in skills:
                 icon = icon.point(lambda p: p * 0.3)
             rect.paste(icon, (icon_margin_right, icon_margin_top), mask=icon)
@@ -62,6 +62,13 @@ def users(a, b, c, d):
         return send_file(output, mimetype="image/png")
     else:
         abort(400)
+
+
+@app.route('/')
+def index():
+    """ Displays the index page accessible at '/'
+    """
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

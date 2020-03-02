@@ -6,6 +6,22 @@ skill_list = [
 ]
 in_str = "PT,PM,AR,EM,SI,BFT,MFCSA"
 in_str = list(set("".join(in_str.split()).split(',')))
+print(in_str)
+# test = [["1" if x in [skill_group.index(c) for c in in_str if c in skill_group] else "0" for x in range(8)] for skill_group in skill_list]
+final = []
+for skill_group in skill_list:
+    bbb = []
+    for x in range(8):
+        aaa = []
+        for c in in_str:
+            if c in skill_group:
+                aaa.append(skill_group.index(c))
+        if x in aaa:
+            bbb.append("1")
+        else:
+            bbb.append("0")
+    final.append(bbb)
+print(final)
 encoded_skills = ','.join(
     map(str, [int(''.join(["1" if x in [skill_group.index(c) for c in in_str if c in skill_group] else "0" for x
                            in range(8)]), 2) for skill_group in skill_list]))
